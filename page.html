@@ -6,8 +6,173 @@
 <body>
 <script>
 
+/*
+
+array with outputs
+use a randomizing variable to return output within the array
+output = array(randomvariable);
+
+use if and else functions to decide results
+
+if player uses rock and computer uses paper, then console log you won
+*/
+
+//completed
+function getComputerChoice(){
+
+    let compArray = ["Rock", "Paper", "Scissors"];
+    let randomVar = Math.floor(Math.random() * compArray.length);
+    let randomOutput = compArray[randomVar]
+
+    return randomOutput;
+}
+
+// function round(playerSelection, computerSelection){
+
+//      if (playerSelection.toLowerCase() == "rock" && computerSelection.toLowerCase() == "scissors"){
+        
+//         console.log("You: " + playerSelection);
+//         console.log("Opponent: " + computerSelection);
+//         return  "You won!";
+        
+//     }
+
+//     else if (playerSelection.toLowerCase() == "rock" && computerSelection.toLowerCase() == "paper"){
+        
+//         console.log("You: " + playerSelection);
+//         console.log("Opponent: " + computerSelection);
+//         return  "You lost!";
+        
+//     }
+
+//     else if (playerSelection.toLowerCase() == "paper" && computerSelection.toLowerCase() == "rock"){
+        
+//         console.log("You: " + playerSelection);
+//         console.log("Opponent: " + computerSelection);
+//         return  "You won!";
+        
+//     }
+
+//     else if (playerSelection.toLowerCase() == "paper" && computerSelection.toLowerCase() == "scissors"){
+        
+//         console.log("You: " + playerSelection);
+//         console.log("Opponent: " + computerSelection);
+//         return  "You lost!";
+        
+//     }
+
+//     else if (playerSelection.toLowerCase() == "scissors" && computerSelection.toLowerCase() == "paper"){
+        
+//         console.log("You: " + playerSelection);
+//         console.log("Opponent: " + computerSelection);
+//         return  "You won!";
+        
+//     }
+
+//     else if (playerSelection.toLowerCase() == "scissors" && computerSelection.toLowerCase() == "rock"){
+        
+//         console.log("You: " + playerSelection);
+//         console.log("Opponent: " + computerSelection);
+//         return  "You lost!";
+        
+//     }
 
 
+//     else if (playerSelection.toLowerCase() == "rock" && computerSelection.toLowerCase() == "rock"){
+        
+//         console.log("You: " + playerSelection);
+//         console.log("Opponent: " + computerSelection);
+//         return  "Draw!";
+        
+//     }
+
+//     else if (playerSelection.toLowerCase() == "paper" && computerSelection.toLowerCase() == "paper"){
+        
+//         console.log("You: " + playerSelection);
+//         console.log("Opponent: " + computerSelection);
+//         return  "Draw";
+        
+//     }
+
+//     else if (playerSelection.toLowerCase() == "scissors" && computerSelection.toLowerCase() == "scissors"){
+        
+//         console.log("You: " + playerSelection);
+//         console.log("Opponent: " + computerSelection);
+//         return  "You lost!";
+        
+//     }
+// }
+
+var playerScore = 0;
+var win = 0;
+
+function round (playerSelection, computerSelection){
+
+   
+
+    if (
+    playerSelection.toLowerCase() == "rock" && computerSelection.toLowerCase()=="scissors" || 
+    playerSelection.toLowerCase() == "paper" && computerSelection.toLowerCase()=="rock" ||
+    playerSelection.toLowerCase() == "scissors"  && computerSelection.toLowerCase()=="paper"
+    ){
+        console.log("You: " + playerSelection);
+        console.log("Opponent: " + computerSelection);
+        return "You won!";
+        win = true;
+        return win;
+    }
+    else if (
+    playerSelection.toLowerCase() == "scissors" && computerSelection.toLowerCase()=="rock" || 
+    playerSelection.toLowerCase() == "rock" && computerSelection.toLowerCase()=="paper" ||
+    playerSelection.toLowerCase() == "paper" && computerSelection.toLowerCase()=="scissors"
+    ){
+        console.log("You: " + playerSelection);
+        console.log("Opponent: " + computerSelection);
+        return "You lost!";
+        win = false;
+        return win;
+
+    }
+    else if (
+    playerSelection.toLowerCase() == computerSelection.toLowerCase()
+    ){
+        console.log("You: " + playerSelection);
+        console.log("Opponent: " + computerSelection);
+        return "Draw!";
+    }
+    else {
+        return "Invalid selection";
+    }
+}
+
+/*
+
+function game will run a loop 5 times 
+
+inside the loop is the round function 
+prompt method will be used to gain the user's input
+console. log the results
+
+
+*/
+
+function game(){
+
+   playerScore = 0;
+   computerScore = 0;
+
+    for (let i = 0; i < 6 ; i ++ ){
+
+        let userInput = prompt("Rock, paper, or scissors?")
+
+        console.log( round(userInput  , getComputerChoice()));
+    }
+
+
+}
+
+
+game();
 
 
 
