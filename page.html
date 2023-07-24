@@ -104,7 +104,8 @@ function getComputerChoice(){
 // }
 
 var playerScore = 0;
-var win = 0;
+var computerScore = 0;
+var win;
 
 function round (playerSelection, computerSelection){
 
@@ -117,9 +118,6 @@ function round (playerSelection, computerSelection){
     ){
         console.log("You: " + playerSelection);
         console.log("Opponent: " + computerSelection);
-        return "You won!";
-        win = true;
-        return win;
     }
     else if (
     playerSelection.toLowerCase() == "scissors" && computerSelection.toLowerCase()=="rock" || 
@@ -128,9 +126,7 @@ function round (playerSelection, computerSelection){
     ){
         console.log("You: " + playerSelection);
         console.log("Opponent: " + computerSelection);
-        return "You lost!";
-        win = false;
-        return win;
+        
 
     }
     else if (
@@ -138,7 +134,6 @@ function round (playerSelection, computerSelection){
     ){
         console.log("You: " + playerSelection);
         console.log("Opponent: " + computerSelection);
-        return "Draw!";
     }
     else {
         return "Invalid selection";
@@ -165,7 +160,10 @@ function game(){
 
         let userInput = prompt("Rock, paper, or scissors?")
 
-        console.log( round(userInput  , getComputerChoice()));
+        round(userInput  , getComputerChoice())
+
+
+
     }
 
 
