@@ -6,6 +6,8 @@
 <body>
 <script>
 
+var compScore = 0;
+var playerScore = 0;
 /*
 
 array with outputs
@@ -17,6 +19,7 @@ use if and else functions to decide results
 if player uses rock and computer uses paper, then console log you won
 */
 
+
 //completed
 function getComputerChoice(){
 
@@ -27,7 +30,6 @@ function getComputerChoice(){
     return randomOutput;
 }
 
-// function round(playerSelection, computerSelection){
 
 //      if (playerSelection.toLowerCase() == "rock" && computerSelection.toLowerCase() == "scissors"){
         
@@ -103,9 +105,7 @@ function getComputerChoice(){
 //     }
 // }
 
-var playerScore = 0;
-var computerScore = 0;
-var win;
+
 
 function round (playerSelection, computerSelection){
 
@@ -116,26 +116,32 @@ function round (playerSelection, computerSelection){
     playerSelection.toLowerCase() == "paper" && computerSelection.toLowerCase()=="rock" ||
     playerSelection.toLowerCase() == "scissors"  && computerSelection.toLowerCase()=="paper"
     ){
-        console.log("You: " + playerSelection);
-        console.log("Opponent: " + computerSelection);
+        console.log("User: " + playerSelection);
+        console.log("Computer: " + computerSelection);
+        
+        return "win";
+
     }
     else if (
     playerSelection.toLowerCase() == "scissors" && computerSelection.toLowerCase()=="rock" || 
     playerSelection.toLowerCase() == "rock" && computerSelection.toLowerCase()=="paper" ||
     playerSelection.toLowerCase() == "paper" && computerSelection.toLowerCase()=="scissors"
     ){
-        console.log("You: " + playerSelection);
-        console.log("Opponent: " + computerSelection);
         
+        console.log("User: " + playerSelection);
+        console.log("Computer: " + computerSelection);
+        return "loss";
 
     }
     else if (
     playerSelection.toLowerCase() == computerSelection.toLowerCase()
     ){
-        console.log("You: " + playerSelection);
-        console.log("Opponent: " + computerSelection);
+        console.log("User: " + playerSelection);
+        console.log("Computer: " + computerSelection);
+       return "draw";
     }
     else {
+        
         return "Invalid selection";
     }
 }
@@ -151,23 +157,66 @@ console. log the results
 
 */
 
+
+
 function game(){
 
-   playerScore = 0;
-   computerScore = 0;
+   
+
 
     for (let i = 0; i < 6 ; i ++ ){
 
-        let userInput = prompt("Rock, paper, or scissors?")
+        
 
-        round(userInput  , getComputerChoice())
+        let userInput = prompt("Rock, paper, or scissors?");
+
+        result = round(userInput  , getComputerChoice())
+        
+        if (result == "win"){
+            console.log("You won!");
+
+            playerScore+= 1;
+            
+
+            
+        }
+        else if (result == "loss"){
+            console.log("You lost!");
+            compScore += 1;
+            
+
+        }
+        else if (result == "draw"){
+            console.log("Draw!");
+            
+
+        }
+       else {
+
+        console.log(result);
 
 
+       }
 
+       console.log("Player: " + playerScore);
+       console.log("Computer: " + compScore);
     }
 
 
+
+    if (playerScore == compScore){
+
+        console.log("The game is a draw!");
+    }
+    else if (playerScore > compScore){
+        console.log("You won the game!");
+    }
+    else {
+        console.log("You lost!");
+    }
+
 }
+
 
 
 game();
